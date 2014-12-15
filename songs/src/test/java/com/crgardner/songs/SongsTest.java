@@ -5,7 +5,7 @@ import static org.junit.Assert.assertThat;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -19,7 +19,6 @@ import co.cask.cdap.test.RuntimeStats;
 import co.cask.cdap.test.StreamWriter;
 import co.cask.cdap.test.TestBase;
 
-import com.crgardner.songs.Songs;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 
@@ -67,14 +66,15 @@ public class SongsTest extends TestBase {
 
     private Map<String, String> retrieveStatisticsReport(ApplicationManager appManager) throws IOException {
         ProcedureManager procedureManager = appManager.startProcedure("SongStatisticsReporter");
-        String response = procedureManager.getClient().query("reportStatistics", new HashMap<String, String>());
+        String response = procedureManager.getClient().query("reportStatistics",
+                                                             Collections.<String, String>emptyMap());
         return new Gson().<Map<String, String>>fromJson(response, stringMapType);
     }
     
     private void assertIsComplete(Map<String, String> statisticsReport) {
         assertThat(statisticsReport.get("loveSongs"), is("5"));
-        assertThat(statisticsReport.get("lotsOfLoveSongs"), is("2"));
-        assertThat(statisticsReport.get("minisculeLoveSongs"), is("3"));
+        assertThat(statisticsReport.get("lotsOfLove"), is("2"));
+        assertThat(statisticsReport.get("minisculeLove"), is("3"));
     }
 }
 

@@ -21,16 +21,16 @@ public class SongStatisticsReporter extends AbstractProcedure {
 
     @Handle("reportStatistics")
     public void report(ProcedureRequest request, ProcedureResponder responder) throws Exception {
-        Builder<String, Object> songStatisticsReport = ImmutableMap.<String, Object> builder();
+        Builder<String, String> songStatisticsReport = ImmutableMap.builder();
 
-        report("love_songs", "loveSongs", songStatisticsReport);
-        report("lots_of_love", "lotsOfLoveSongs", songStatisticsReport);
-        report("miniscule_love", "minisculeLoveSongs", songStatisticsReport);
+        doReport("love_songs", "loveSongs", songStatisticsReport);
+        doReport("lots_of_love", "lotsOfLove", songStatisticsReport);
+        doReport("miniscule_love", "minisculeLove", songStatisticsReport);
 
         responder.sendJson(new ProcedureResponse(SUCCESS),songStatisticsReport.build());
     }
 
-    private void report(String songStatistic, String key, Builder<String, Object> songStatisticsReport) {
+    private void doReport(String songStatistic, String key, Builder<String, String> songStatisticsReport) {
         Row row = songStatistics.get(Bytes.toBytes(songStatistic));
         songStatisticsReport.put(key, String.valueOf(row.getLong("value")));
     }
