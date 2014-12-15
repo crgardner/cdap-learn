@@ -20,9 +20,9 @@ public class SongStatisticsReporter extends AbstractProcedure {
     private Table songStatistics;
 
     @Handle("reportStatistics")
-    public void greet(ProcedureRequest request, ProcedureResponder responder) throws Exception {
+    public void report(ProcedureRequest request, ProcedureResponder responder) throws Exception {
         Builder<String, Object> songStatisticsReport = ImmutableMap.<String, Object> builder();
-        
+
         report("love_songs", "loveSongs", songStatisticsReport);
         report("lots_of_love", "lotsOfLoveSongs", songStatisticsReport);
         report("miniscule_love", "minisculeLoveSongs", songStatisticsReport);
