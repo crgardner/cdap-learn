@@ -74,7 +74,7 @@ public class SongsTest extends TestBase {
     private void assertIsComplete(Map<String, String> statisticsReport) {
         assertThat(statisticsReport.get("loveSongs"), is("5"));
         assertThat(statisticsReport.get("lotsOfLove"), is("2"));
-        assertThat(statisticsReport.get("minisculeLove"), is("3"));
+        assertThat(statisticsReport.get("minusculeLove"), is("3"));
     }
 }
 

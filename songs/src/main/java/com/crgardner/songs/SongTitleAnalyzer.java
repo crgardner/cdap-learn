@@ -48,7 +48,7 @@ public class SongTitleAnalyzer extends AbstractFlowlet {
         }
 
         if (matchCount == 1) {
-            incrementMetric("miniscule_love");
+            incrementMetric("minuscule_love");
         }
     }
 

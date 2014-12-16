@@ -25,7 +25,7 @@ public class SongStatisticsReporter extends AbstractProcedure {
 
         doReport("love_songs", "loveSongs", songStatisticsReport);
         doReport("lots_of_love", "lotsOfLove", songStatisticsReport);
-        doReport("miniscule_love", "minisculeLove", songStatisticsReport);
+        doReport("minuscule_love", "minusculeLove", songStatisticsReport);
 
         responder.sendJson(new ProcedureResponse(SUCCESS), songStatisticsReport.build());
     }
