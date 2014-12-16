@@ -58,7 +58,7 @@ public class SongsTest extends TestBase {
     private void waitForFlowToComplete(FlowManager flowManager) throws Exception {
         try {
             RuntimeMetrics metrics = RuntimeStats.getFlowletMetrics("Songs", "SongsFlow", "saver");
-            metrics.waitForProcessed(5, 60, TimeUnit.SECONDS);
+            metrics.waitForProcessed(9, 60, TimeUnit.SECONDS);
         } finally {
             flowManager.stop();
         }
@@ -68,7 +68,7 @@ public class SongsTest extends TestBase {
         ProcedureManager procedureManager = appManager.startProcedure("SongStatisticsReporter");
         String response = procedureManager.getClient().query("reportStatistics",
                                                              Collections.<String, String>emptyMap());
-        return new Gson().<Map<String, String>>fromJson(response, stringMapType);
+        return new Gson().fromJson(response, stringMapType);
     }
     
     private void assertIsComplete(Map<String, String> statisticsReport) {

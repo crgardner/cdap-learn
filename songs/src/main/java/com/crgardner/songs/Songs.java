@@ -9,7 +9,7 @@ public class Songs extends AbstractApplication {
     @Override
     public void configure() {
         setName("Songs");
-        setDescription("Searches song titles for the oft used word \"love\"");
+        setDescription("Searches song titles for the oft-used word \"love\"");
         addStream(new Stream("songTitles"));
         createDataset("songStatistics", Table.class);
         addFlow(new SongsFlow());

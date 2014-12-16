@@ -27,7 +27,7 @@ public class SongStatisticsReporter extends AbstractProcedure {
         doReport("lots_of_love", "lotsOfLove", songStatisticsReport);
         doReport("miniscule_love", "minisculeLove", songStatisticsReport);
 
-        responder.sendJson(new ProcedureResponse(SUCCESS),songStatisticsReport.build());
+        responder.sendJson(new ProcedureResponse(SUCCESS), songStatisticsReport.build());
     }
 
     private void doReport(String songStatistic, String key, Builder<String, String> songStatisticsReport) {

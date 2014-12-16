@@ -10,7 +10,7 @@ public class SongsFlow implements Flow {
                                         .setName("SongsFlow")
                                         .setDescription("Collects song titles")
                                         .withFlowlets()
-                                        .add("saver", new SongTitleSaver())
+                                        .add("saver", new SongTitleAnalyzer())
                                         .connect().fromStream("songTitles")
                                         .to("saver")
                                         .build();

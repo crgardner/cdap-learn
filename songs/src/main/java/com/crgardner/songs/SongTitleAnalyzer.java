@@ -13,7 +13,7 @@ import co.cask.cdap.api.flow.flowlet.AbstractFlowlet;
 import co.cask.cdap.api.flow.flowlet.StreamEvent;
 import co.cask.cdap.api.metrics.Metrics;
 
-public class SongTitleSaver extends AbstractFlowlet {
+public class SongTitleAnalyzer extends AbstractFlowlet {
     
     @UseDataSet("songStatistics")
     private Table songStatistics;
