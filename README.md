@@ -5,7 +5,7 @@ cdap-learn is a sandbox of code to explore and learn the [Cask Data Application 
 
 The sandbox includes the songs project, which does the following: 
   - Creates a flow to which song titles are streamed
-  - Filters song titles with the word "love"
+  - Filters song titles that contain the word "love" at least once
   - Captures and reports statistics on the number of filtered songs
 
 ###Statistics Report
